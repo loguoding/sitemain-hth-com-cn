@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>问鼎娱乐 · 生活日常的延伸阅读</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fce9d8 0%, #f8dcc4 50%, #f1cbaa 100%);
+      min-height: 100vh;
+      padding: 2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .page-wrapper {
+      max-width: 1100px;
+      width: 100%;
+    }
+    /* 暖色卡片基调 */
+    .card {
+      background: #fffdf9;
+      border-radius: 40px 16px 40px 16px;
+      box-shadow: 0 12px 28px rgba(160, 100, 60, 0.12), 0 6px 10px rgba(170, 100, 40, 0.06);
+      padding: 2.2rem 2rem;
+      margin-bottom: 2.2rem;
+      transition: box-shadow 0.25s;
+    }
+    .card:hover {
+      box-shadow: 0 18px 36px rgba(150, 85, 40, 0.14);
+    }
+
+    /* hero 区域 */
+    .hero {
+      text-align: center;
+      padding: 2.8rem 1.8rem;
+      background: #fffaf4;
+      border-radius: 50px 18px 50px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -40%;
+      left: -20%;
+      width: 180%;
+      height: 180%;
+      background: radial-gradient(circle at 20% 30%, rgba(255, 175, 95, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #6b3f1c;
+      position: relative;
+    }
+    .hero h1 span {
+      background: #f5dcc2;
+      padding: 0 0.6rem;
+      border-radius: 40px 8px 40px 8px;
+      font-weight: 480;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #5a3f2b;
+      max-width: 620px;
+      margin: 1.2rem auto 0.6rem;
+      line-height: 1.6;
+      position: relative;
+    }
+    .hero .tagline {
+      font-weight: 350;
+      color: #7a5b40;
+      background: rgba(245, 210, 180, 0.35);
+      display: inline-block;
+      padding: 0.2rem 1.8rem;
+      border-radius: 60px 12px 60px 12px;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    /* 两栏灵活布局 */
+    .flex-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .flex-row > * {
+      flex: 1 1 280px;
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      font-weight: 460;
+      color: #613d1f;
+      margin-bottom: 1.2rem;
+      border-left: 5px solid #dba776;
+      padding-left: 1rem;
+    }
+    h3 {
+      font-weight: 450;
+      color: #674226;
+      margin: 1.2rem 0 0.6rem;
+    }
+    p, li {
+      line-height: 1.7;
+      color: #3f2d1b;
+      font-size: 1rem;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    li {
+      padding: 0.4rem 0 0.4rem 1.8rem;
+      position: relative;
+    }
+    li::before {
+      content: "·";
+      position: absolute;
+      left: 0.4rem;
+      color: #b67b4b;
+      font-weight: 600;
+      font-size: 1.3rem;
+    }
+
+    /* 按钮感链接 */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .link-button {
+      display: inline-block;
+      background: #e9cbaa;
+      color: #4f311b;
+      padding: 0.5rem 1.8rem;
+      border-radius: 60px 14px 60px 14px;
+      font-weight: 480;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 2px 6px rgba(150, 80, 30, 0.10);
+      letter-spacing: 0.3px;
+    }
+    .link-button:hover {
+      background: #ddb78c;
+      transform: scale(0.97);
+    }
+    .inline-link {
+      background: #eddccb;
+      padding: 0.1rem 0.8rem;
+      border-radius: 40px 8px 40px 8px;
+      font-weight: 480;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .inline-link:hover {
+      background: #dcc1a6;
+    }
+
+    /* 说明区 / FAQ 摘要 */
+    .faq-item {
+      border-bottom: 1px dashed #e1cdb4;
+      padding: 1rem 0;
+    }
+    .faq-item:last-child {
+      border: none;
+    }
+    .faq-q {
+      font-weight: 540;
+      color: #593a1e;
+      margin-bottom: 0.3rem;
+      display: flex;
+      gap: 0.6rem;
+      align-items: baseline;
+    }
+    .faq-q::before {
+      content: "❓";
+      font-size: 1rem;
+      opacity: 0.6;
+    }
+    .faq-a {
+      color: #4a3420;
+      padding-left: 1.8rem;
+      font-size: 0.98rem;
+    }
+
+    /* 底部 */
+    .footer {
+      margin-top: 1.2rem;
+      text-align: center;
+      color: #684e32;
+      font-size: 0.9rem;
+      padding: 1.6rem 0.5rem;
+      border-top: 1px solid #dbbc9c;
+    }
+    .footer p {
+      color: #5a3f28;
+      opacity: 0.85;
+    }
+
+    /* 提示小标签 */
+    .note {
+      background: #f6efe6;
+      border-radius: 18px 6px 18px 6px;
+      padding: 0.8rem 1.4rem;
+      margin: 1.2rem 0;
+      font-size: 0.95rem;
+      border-left: 4px solid #c59c73;
+      color: #3b2b1b;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 600px) {
+      body { padding: 1.2rem 0.8rem; }
+      .card { padding: 1.6rem 1.2rem; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      h2 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- Hero 区 -->
+  <div class="hero card" style="padding-bottom: 2.5rem;">
+    <h1>日常对照 · <span>问鼎娱乐</span></h1>
+    <p>翻开手机，查阅比对，偶尔延伸阅读——这些细小的习惯，让零散信息变成有温度的参照。</p>
+    <div class="tagline">生活查询 · 对照笔记 · 延伸阅读</div>
+  </div>
+
+  <!-- 优势区 两卡片 -->
+  <div class="flex-row">
+    <div class="card">
+      <h2>对照 · 更轻松</h2>
+      <p style="margin-bottom: 0.6rem;">平时查规则、看说明、对比细节，不必翻来覆去。页面清爽，信息直接，减少多余步骤。</p>
+      <ul>
+        <li>常见问题一瞥即答</li>
+        <li>分类条目清晰</li>
+        <li>日常使用无负担</li>
+      </ul>
+      <div style="margin-top: 1rem;">
+        <a href="https://main-wd.com" class="link-button">问鼎娱乐</a>
+      </div>
+    </div>
+    <div class="card">
+      <h2>延伸 · 有质感</h2>
+      <p>从一条查询延伸到相关背景，从一段说明链接到更多视角。适合碎片时间慢慢翻看。</p>
+      <div class="note" style="margin: 1rem 0 0.5rem;">
+        📌 例如：了解玩法背景、阅读常见条目、对照不同游戏说明。
+      </div>
+      <p style="margin-top: 0.8rem;">打开 <a href="https://main-wd.com" class="inline-link">问鼎娱乐</a>，像翻一本随手可及的手册。</p>
+    </div>
+  </div>
+
+  <!-- 说明区 + 场景 -->
+  <div class="card">
+    <h2>说明 · 查询与延伸</h2>
+    <p>这个页面围绕“日常查询、对照和延伸阅读”展开。不堆砌术语，只把常用信息整理成可翻阅的样式。无论你是快速确认一个细节，还是想在休息时随便看看，都能找到合适的节奏。</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 1.2rem 0 0.4rem;">
+      <span style="background: #efe2d0; padding: 0.3rem 1.2rem; border-radius: 30px 8px 30px 8px;">📋 规则对照</span>
+      <span style="background: #efe2d0; padding: 0.3rem 1.2rem; border-radius: 30px 8px 30px 8px;">🔍 条目检索</span>
+      <span style="background: #efe2d0; padding: 0.3rem 1.2rem; border-radius: 30px 8px 30px 8px;">📎 延伸笔记</span>
+    </div>
+    <p style="margin-top: 0.8rem;">依托于 <a href="https://main-wd.com" class="inline-link">问鼎娱乐</a> 提供的结构与分类，日常查阅体验更贴近真实需要。</p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="card">
+    <h2>常见问题 · 摘要</h2>
+    <div class="faq-item">
+      <div class="faq-q">怎样快速找到某一条对照信息？</div>
+      <div class="faq-a">推荐使用页面内关键词定位，或直接翻看分类区块。大部分内容按场景整理，可直接浏览。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">延伸阅读部分包含什么？</div>
+      <div class="faq-a">会提供相关背景、对比说明和简短注释，适合想了解更多但又不想看长篇大论的时候翻阅。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">内容会频繁更新吗？</div>
+      <div class="faq-a">保持稳定为主，偶尔补充或优化条目。每次调整都以更清晰、更实用为目标。</div>
+    </div>
+    <div style="margin-top: 1rem; padding: 0.6rem 0; text-align: right;">
+      <a href="https://main-wd.com" class="link-button" style="font-weight: 450;">问鼎娱乐</a>
+    </div>
+  </div>
+
+  <!-- 提示条 -->
+  <div class="card" style="padding: 1.2rem 1.8rem; background: #fcf6ed;">
+    <p style="font-size: 0.98rem; display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+      <span style="font-size: 1.3rem;">📖</span> 日常查询，不求快，但求准。延伸阅读，不必深，但有味。页面由 <a href="https://main-wd.com" class="inline-link">问鼎娱乐</a> 支持内容结构。
+    </p>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer">
+    <p>内容仅供日常参考 · 对照说明 · 延伸阅读</p>
+    <p style="margin-top: 0.4rem; font-size: 0.85rem;">© 问鼎娱乐 · main-wd.com</p>
+  </div>
+
+</div>
+</body>
+</html>
