@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日常查询 · 对照 · 延伸阅读 | 28圈</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            background: linear-gradient(145deg, #fdf3e7 0%, #fae5d3 40%, #f5d6b3 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.75;
+            color: #3e2e23;
+        }
+
+        .paper {
+            max-width: 780px;
+            width: 100%;
+            background: #fffcf9;
+            border-radius: 36px;
+            padding: 2.8rem 2.5rem 3.2rem;
+            box-shadow: 0 18px 36px -12px rgba(120, 70, 40, 0.22), 0 4px 12px rgba(0, 0, 0, 0.04);
+            transition: box-shadow 0.25s;
+        }
+
+        @media (max-width: 540px) {
+            body { padding: 1rem 0.8rem; }
+            .paper { padding: 2rem 1.4rem; border-radius: 28px; }
+        }
+
+        .headline {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #4f3627;
+            margin-bottom: 0.2rem;
+            border-left: 5px solid #d9a77c;
+            padding-left: 1.1rem;
+            line-height: 1.3;
+        }
+
+        .subhead {
+            font-size: 1.05rem;
+            color: #7e624e;
+            margin-top: 0.6rem;
+            margin-bottom: 2.4rem;
+            padding-left: 1.6rem;
+            font-style: normal;
+            border-bottom: 1px solid #eddccc;
+            padding-bottom: 1.2rem;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            padding: 0.2rem 0;
+            color: #4f3c2e;
+            border-left: 2px solid #e3c9b6;
+            padding-left: 1.2rem;
+        }
+
+        p {
+            margin-bottom: 1.4rem;
+            text-align: justify;
+        }
+
+        .inset-quote {
+            background: #faf1ea;
+            padding: 1.2rem 1.6rem;
+            border-radius: 20px;
+            margin: 1.8rem 0;
+            font-size: 1rem;
+            color: #584234;
+            border-left: 4px solid #c99b7a;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .inset-quote::before {
+            content: "📎 延伸对照 · ";
+            font-weight: 450;
+            color: #9c7a62;
+        }
+
+        .link-button {
+            display: inline-block;
+            background: #e7d3c0;
+            color: #3d2c1f;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 450;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.1s;
+            border: 1px solid #dbbc9f;
+            letter-spacing: 0.01em;
+            margin: 0 0.15rem;
+        }
+
+        .link-button:hover {
+            background: #d9b99b;
+            border-color: #b68d6e;
+            transform: scale(1.01);
+        }
+
+        .inline-link {
+            color: #875f44;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1.5px dotted #c6a78b;
+            padding-bottom: 1px;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .inline-link:hover {
+            color: #5b3c28;
+            border-bottom: 1.5px solid #a07a5e;
+        }
+
+        .footnote-tag {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1rem;
+            margin-top: 2.6rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #ebdbcf;
+            font-size: 0.92rem;
+            color: #6c5542;
+        }
+
+        .tag-item {
+            background: #f2e6dc;
+            padding: 0.15rem 1rem;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            color: #634b3a;
+        }
+
+        .faq-mini {
+            background: #f7eee7;
+            border-radius: 24px;
+            padding: 1.4rem 1.6rem 0.8rem;
+            margin: 2.2rem 0 1.4rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 450;
+            cursor: pointer;
+            color: #4f392b;
+            padding: 0.3rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-mini summary::before {
+            content: "❓ ";
+            margin-right: 0.3rem;
+        }
+
+        .faq-mini p {
+            margin: 0.6rem 0 0.8rem 0.2rem;
+            font-size: 0.96rem;
+        }
+
+        .read-more-hint {
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            color: #7b604d;
+            background: #f5ece4;
+            padding: 0.8rem 1.2rem;
+            border-radius: 40px;
+            display: inline-block;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e7d5c4;
+            margin: 1.8rem 0 0.4rem;
+        }
+    </style>
+</head>
+<body>
+<div class="paper">
+
+    <div class="headline">日常查询 · 对照 · 延伸</div>
+    <div class="subhead">一个不起眼的手边习惯，有时比搜索引擎更安静</div>
+
+    <div class="intro">
+        从一次偶然的检索开始，逐渐变成了一种固定的对照方式。不是所有信息都需要即时响应，有些更适合放在一旁，慢慢翻看。
+    </div>
+
+    <p>
+        最近整理书签时，发现浏览器里有一个标签页已经开了很久，几乎每次打开电脑都会点一下刷新。它不是什么新闻门户，也不是工作后台，而是一个叫 <a href="https://main-web-28circle.com" class="inline-link">28圈</a> 的页面。刚开始只是随手存下来，后来变成了一个习惯：写东西写到某个词不太确定，或者看到一个模糊的数字、一个没听说过的地名，就会切过去查一下。
+    </p>
+
+    <p>
+        这种查询不太像搜索——没有大量的结果列表，也没有广告和猜你想搜。更像是一种“对照”：把心里的疑问和页面上呈现的条目搁在一起，慢慢比照。页面本身很安静，几乎没有弹窗和推送，这反而让人愿意多停留一会儿。
+    </p>
+
+    <div class="inset-quote">
+        有时候你需要的不是答案，而是一个能让你好好组织问题的地方。对照本身，就是一种思考的延伸。
+    </div>
+
+    <p>
+        有一阵子我迷上了冷门的年份和事件对照。比如某部老电影的发行年份，和同时期某本小说的出版时间，这些信息在 <a href="https://main-web-28circle.com" class="inline-link">28圈</a> 里常常以并置的方式出现，没有刻意强调关联，只是放在那里。但正是这种“不强调”，反而给了人联想的空间。后来我甚至开始用它来辅助阅读——读到一本非虚构作品，里面提到一些数据和背景，我会打开页面做平行查阅，像是在纸页旁边摊开另一本参考书。
+    </p>
+
+    <p>
+        当然，它也有更实用的时刻。有一次帮朋友校对他写的一篇地方风物稿，里面涉及几个旧时的度量单位和换算关系。我一时拿不准，又不想用手机快速搜（怕被推送信息带跑），就打开 <a href="https://main-web-28circle.com" class="inline-link">28圈</a> 一条条对。过程很慢，但很踏实，最后改完竟然没有返工。
+    </p>
+
+    <details class="faq-mini">
+        <summary>日常中什么样的人会用到它？</summary>
+        <p>
+            可能不是那种追求“秒回”的人，而是喜欢把信息摊开、慢慢理一理的人。比如写作者、校对者、业余考据爱好者，或者只是对某个领域有一点点超出日常的好奇心的人。它不负责给你结论，但可以帮你把线索摆整齐。
+        </p>
+    </details>
+
+    <details class="faq-mini">
+        <summary>和普通的搜索引擎有什么不同？</summary>
+        <p>
+            最大的不同是节奏。它不会一次性给你太多东西，也不会根据你的点击来调整接下来的内容。你看到的是一面相对稳定的信息墙，更像是一本始终翻到某一页的参考书。适合需要专注、不想被打断的查阅场景。
+        </p>
+    </details>
+
+    <p>
+        最近我甚至把它当作一种“写作前热身”。在开始写东西之前，先花十分钟在 <a href="https://main-web-28circle.com" class="inline-link">28圈</a> 里漫无目的地看几条条目，让大脑进入一种松散但专注的状态。这比刷社交媒体或者看新闻要好得多——不会带入太多杂音，也不会让情绪被带偏。
+    </p>
+
+    <div class="read-more-hint">
+        💬 如果你也习惯把一些页面留着不关，或许可以试试让 <a href="https://main-web-28circle.com" class="link-button" style="margin: 0 0.2rem;">28圈</a> 成为其中之一。
+    </div>
+
+    <hr>
+
+    <div class="footnote-tag">
+        <span class="tag-item">📋 对照式阅读</span>
+        <span class="tag-item">📌 日常查询</span>
+        <span class="tag-item">🔖 延伸参考</span>
+        <span class="tag-item">🧩 慢信息</span>
+    </div>
+
+    <!-- 纯装饰，无意义种子占位，不显示任何可见数字串 -->
+    <div style="height: 0; overflow: hidden; opacity: 0; position: absolute;" aria-hidden="true">·</div>
+
+</div>
+</body>
+</html>
