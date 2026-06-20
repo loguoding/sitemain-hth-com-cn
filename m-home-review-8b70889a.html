@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>28圈 · 日常查询与对照指南</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #fbf8f2;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      color: #2e2b27;
+      line-height: 1.7;
+      padding: 0 1.2rem;
+    }
+
+    .page-wrap {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 2rem 0 3.5rem;
+    }
+
+    /* --- 顶部导航 --- */
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0 1.2rem;
+      border-bottom: 1px solid #ddd6cb;
+      margin-bottom: 2.8rem;
+    }
+
+    .site-name {
+      font-size: 1.2rem;
+      font-weight: 550;
+      letter-spacing: 0.03em;
+      color: #5d4d3e;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: #5f4e3c;
+      text-decoration: none;
+      padding-bottom: 3px;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #2b1e14;
+      border-bottom-color: #b7a48b;
+    }
+
+    /* --- hero --- */
+    .hero {
+      margin-bottom: 3.2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 480;
+      letter-spacing: 0.01em;
+      color: #2b1f14;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: #4a3f34;
+      max-width: 72%;
+    }
+
+    @media (max-width: 600px) {
+      .hero p { max-width: 100%; }
+    }
+
+    /* --- 正文排版 --- */
+    .content-section {
+      margin: 2.6rem 0 2.2rem;
+    }
+
+    .content-section h2 {
+      font-size: 1.45rem;
+      font-weight: 460;
+      color: #3d3229;
+      margin-bottom: 0.9rem;
+      border-left: 4px solid #b8a189;
+      padding-left: 0.85rem;
+    }
+
+    .content-section p {
+      margin-bottom: 1.1rem;
+    }
+
+    /* --- 引用块 / 提示框 --- */
+    .callout {
+      background: #f4efe7;
+      border-left: 5px solid #b1987b;
+      padding: 1rem 1.5rem;
+      margin: 1.6rem 0 1.8rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.98rem;
+      color: #3d352c;
+    }
+
+    .callout strong {
+      font-weight: 520;
+      color: #2b1f12;
+    }
+
+    .callout-note {
+      background: #ede7dd;
+      border-left-color: #8b7b67;
+      padding: 0.9rem 1.4rem;
+      border-radius: 0 6px 6px 0;
+      margin: 1.2rem 0 1.2rem;
+      font-size: 0.96rem;
+    }
+
+    /* --- 三场景卡片 (横向) --- */
+    .scenes-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1.8rem 0 0.8rem;
+    }
+
+    .scene-card {
+      flex: 1 1 200px;
+      background: #ffffffef;
+      padding: 1.4rem 1.2rem 1.6rem;
+      border-radius: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02), 0 6px 14px rgba(60, 45, 30, 0.04);
+      border: 1px solid #e8e0d4;
+    }
+
+    .scene-card h3 {
+      font-weight: 480;
+      font-size: 1.15rem;
+      color: #3c2d1f;
+      margin-bottom: 0.55rem;
+      letter-spacing: 0.5px;
+    }
+
+    .scene-card p {
+      font-size: 0.95rem;
+      color: #3f372e;
+      margin-bottom: 0;
+    }
+
+    /* --- faq 摘要（常见说明）--- */
+    .faq-mini {
+      margin: 2.8rem 0 2.4rem;
+      border-top: 1px solid #ddd3c4;
+      padding-top: 2rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-item .q {
+      font-weight: 520;
+      color: #3b2d1d;
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    .faq-item .a {
+      color: #4f4438;
+      padding-left: 0.4rem;
+    }
+
+    .faq-item .a a {
+      color: #6a4f33;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #cbb8a2;
+    }
+
+    .faq-item .a a:hover {
+      color: #2f1d0a;
+      text-decoration-color: #7f5f42;
+    }
+
+    /* --- 内嵌链接（通用）--- */
+    a {
+      color: #6a4f33;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #d0bfab;
+      transition: color 0.15s, text-decoration-color 0.15s;
+    }
+
+    a:hover {
+      color: #2d1b09;
+      text-decoration-color: #7a5d41;
+    }
+
+    /* --- 底部 --- */
+    .footer-note {
+      margin-top: 4rem;
+      padding: 1rem 0 0.8rem;
+      font-size: 0.88rem;
+      color: #7c6f60;
+      border-top: 1px solid #e2d8cb;
+      text-align: left;
+    }
+
+    /* 响应式 */
+    @media (max-width: 540px) {
+      .top-nav { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+      .nav-links { gap: 1.2rem; }
+      .hero h1 { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <span class="site-name">28圈·对照</span>
+    <div class="nav-links">
+      <a href="#daily">日常查询</a>
+      <a href="#scenes">场景</a>
+      <a href="#faq">常见说明</a>
+    </div>
+  </nav>
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>从日常查询到延伸对照</h1>
+    <p>一份围绕 <a href="https://m-home-28circle.com">28圈</a> 整理的基础说明，适合在需要快速查阅、对比条目或了解基本概念时使用。</p>
+  </div>
+
+  <!-- 核心介绍 自然段 -->
+  <div class="content-section" id="daily">
+    <h2>日常查询与对照</h2>
+    <p>对于经常需要查阅条目或参考结构的人来说，信息的清晰排列比花哨的引导更重要。这里依照常见的整理习惯，把与 <a href="https://m-home-28circle.com">28圈</a> 相关的基本模块做了摘要式编排，便于直接定位，无需翻找。</p>
+    <p>页面内容侧重基础说明和场景分化，不包含操作指引或主观评价。如果你需要更完整的原始信息，可以直接访问对应板块做延伸阅读。</p>
+  </div>
+
+  <!-- 引用块 / 提示 -->
+  <div class="callout">
+    <strong>提示</strong> · 以下三个场景模块分别对应不同的使用习惯：查询、对比和延伸了解。每个卡片内部只列出最必要的信息线头，具体细节建议结合原始页面阅读。
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="content-section" id="scenes">
+    <h2>三个常见使用场景</h2>
+    <div class="scenes-grid">
+      <div class="scene-card">
+        <h3>快速查询</h3>
+        <p>当需要核对条目编号、名称或基础属性时，直接按分类定位。模块内部按字母/数字排列，减少反复滚动。</p>
+      </div>
+      <div class="scene-card">
+        <h3>条目对照</h3>
+        <p>把相似条目并列展示，差异点用标注区分。适合在不确定两个概念区别时做横向对比，尤其适用于参数或类别接近的情况。</p>
+      </div>
+      <div class="scene-card">
+        <h3>延伸阅读</h3>
+        <p>每个条目底部附有短注释或相关链接，指向更详细的解释页面。不打断主线，但为想深入了解的人保留了入口。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ摘要) -->
+  <div class="faq-mini" id="faq">
+    <h2 style="font-size:1.35rem; font-weight:460; margin-bottom:1.2rem; color:#3d3229;">常见说明 · 摘要</h2>
+
+    <div class="faq-item">
+      <span class="q">Q: 信息更新频率如何？</span>
+      <span class="a">页面内容会跟随原始站点结构做不定期的同步调整，但不对具体条目的时效做实时保证。建议在依赖数据前自行对照 <a href="https://m-home-28circle.com">28圈</a> 当前页面。</span>
+    </div>
+
+    <div class="faq-item">
+      <span class="q">Q: 场景模块是否覆盖所有功能？</span>
+      <span class="a">不。这里只选取了最常用的三个切入点：查询、对照和延伸阅读。其余功能模块（如归档、搜索）未包含在本摘要中。</span>
+    </div>
+
+    <div class="faq-item">
+      <span class="q">Q: 引用块和提示框里的内容可靠吗？</span>
+      <span class="a">提示框仅描述页面组织逻辑，不包含推荐或结论。所有原始定义和分类仍以 <a href="https://m-home-28circle.com">28圈</a> 页面本身为准。</span>
+    </div>
+
+    <div class="callout-note" style="margin-top:1.6rem;">
+      <strong>说明</strong> · 以上问答仅针对本介绍页的结构设计，不构成对网站服务或内容的延伸解释。
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    <span>页面内容整理自公开信息 · 可对照 <a href="https://m-home-28circle.com">28圈</a> 原始页面阅读细节</span>
+  </div>
+</div>
+</body>
+</html>
